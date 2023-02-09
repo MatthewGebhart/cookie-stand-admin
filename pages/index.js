@@ -1,6 +1,11 @@
 import Head from 'next/head';
-import Link from 'next/link';
+// import Head from 'components/head';
+
 import {useState} from 'react';
+import Header from 'components/Header'
+import Footer from 'components/Footer'
+
+import Main from '/components/Main';
 
 
 export default function Home() {
@@ -13,7 +18,7 @@ export default function Home() {
       name: event.target.locationName.value,
       minCustomers: event.target.minCustomers.value,
       maxCustomers: event.target.maxCustomers.value,
-      avgCookies: event.target.avgCookies.value,
+      avgCookies: event.target.avgCookiesPerSale.value,
       id: locations.length
     };
     setLocations([...locations, location])
@@ -27,70 +32,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className=' flex items-start p-3 bg-emerald-500'>
-        <h1 className='text-3xl font-semibold'>Cookie Stand Admin</h1>
-      </header>
-      <main className='py-6 bg-emerald-100'>
-          <form className='w-3/4 p-2 mx-auto my-auto rounded-md bg-emerald-300' onSubmit={locationCreateHandler}>
-            <h2 className='text-center text-2xl font-semibold p-2'>Create Cookie Stand</h2>
-            <div className="flex justify-evenly p-3 my-1">
-              <label className='font-semibold'>Location</label>
-              <input name='location' id='location' className='flex-auto ml-2 pl-1' value='Barcelona'/>
-            </div>
-            <div className='flex justify-evenly'>
-              <div>
-                <label className='block p-1 text-center font-semibold'>Min Customers per Hour</label>
-                <input name="minCustomers" className='block mb-2 font-semibold' id='minCustomers' value='2'/>
-              </div>
-              <div>
-                <label className='block p-1 text-center font-semibold'>Max Customers per Hour</label>
-                <input name="maxCustomers" className='block mb-2 font-semibold' id='maxCustomers' value='4'/>
-              </div>
-              <div>
-                <label className='block p-1 text-center font-semibold'>Avg Cookies Per Sale</label>
-                <input name="avgCookiesPerSale" className='block mb-2 font-semibold' id='avgCookiesPerSale' value='2.5'/>
-              </div>
-            <button className='px-28 font-semibold bg-emerald-500 hover:bg-blue-500'>Create</button>
-            </div>
-          </form>
-          <div className='my-6 text-center'>
-          <h3 className=''>Report Table Coming Soon...</h3>
-          <br></br>
-          <p>&#123;"location":"Barcelona","minCustomers":2,"maxCustomers":4,"avgCookies":2.5&#125;</p>
-          </div>
-          
-          {/* <table className="w-1/2 mx-auto">
-              <thead>
-                  <tr>
-                      <th className="border border-gray-700">No.</th>
-                      <th className="border border-gray-700">Location</th>
-                      <th className="border border-gray-700">Minimum Customer/Hour</th>
-                      <th className="border border-gray-700">Maximum Customer/Hour</th>
-                      <th className="border border-gray-700">Average Cookies/Sale</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  {
-                    locations.map((item, idx) => {
-                      return (
-                        <tr key={idx}>
-                          <td className="pl-2 border border-gray-700">{item.id}</td>
-                          <td className="pl-2 border border-gray-700">{item.name}</td>
-                          <td className="pl-2 border border-gray-700">{item.minCustomers}</td>
-                          <td className="pl-2 border border-gray-700">{item.maxCustomers}</td>
-                          <td className="pl-2 border border-gray-700">{item.avgCookies}</td>
-                      </tr>
-                      )
-                    })
-                  }
-              </tbody>
-          </table> */}
-
-      </main >
-    <footer className='p-3 bg-emerald-500 text-m font-semibold'>
-      <Link href='/about'>©2021</Link>
-
-    </footer>
+      <Header/>
+      <Main locationCreateHandler={locationCreateHandler} locations={locations}/>
+      <Footer locations={locations}/>
     </>
   )
 }
