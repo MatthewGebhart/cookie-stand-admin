@@ -1,3 +1,14 @@
+# Lab 38
+## Cookie Stand Admin version 2
+## Matthew Gebhart
+
+
+# componentize and add tables
+
+splitting up code into components and adding hard coded store sales tables
+Note - ternary function to only display table data on main page is commented out to display the table with hardcoded data. 
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
