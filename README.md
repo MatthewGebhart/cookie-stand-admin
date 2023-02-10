@@ -1,14 +1,13 @@
-# Lab 38
-## Cookie Stand Admin version 2
+# Lab 39
+## Cookie Stand Admin version 3
 ## Matthew Gebhart
 
 
-# componentize and add tables
+## connect Next.js to DRF API
 
-splitting up code into components and adding hard coded store sales tables
-Note - ternary function to only display table data on main page is commented out to display the table with hardcoded data. 
+Adding login and authentication with JWT and connecting to Django REST API backend with postgreSQL dbgst
 
-
+### Next.js documentation below
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
