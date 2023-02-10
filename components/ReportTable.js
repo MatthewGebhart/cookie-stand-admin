@@ -21,7 +21,8 @@ export default function ReportTable(props){
                         {hourlySales.map((hour) => {
                             return <td key={hour.id} className="border border-gray-700 text-center">{hour}</td>
                         })}
-                        <td className='text-center'>{hourlySalesTotalRender}</td>
+                        {/* <td className='text-center'>{hourlySalesTotalRender}</td> */}
+                        <td className='text-center'>{hourlySales.reduce((sum, value) => sum + value, 0)}</td>
                     </tr>
                     )
                 })}
@@ -30,7 +31,7 @@ export default function ReportTable(props){
                 <tr className=' text-center font-semibold border border-gray-700 bg-emerald-500'>
                     <tf>Totals</tf>
                     {hourlyTotals.map((total) => {
-                            return <td key={hourlyTotals.id} className="border border-gray-700 text-center">{total}</td>
+                            return <td key={total.id} className="border border-gray-700 text-center">{total}</td>
                         })}
                     <tf>4560</tf>
                 </tr>
