@@ -1,16 +1,17 @@
 import Head from 'next/head';
 // import Head from 'components/head';
 
+import { useAuth } from '@/contexts/auth';
 import {useState} from 'react';
-import Header from 'components/Header'
-import Footer from 'components/Footer'
-
+import Header from 'components/Header';
+import Footer from 'components/Footer';
+import LoginForm from 'components/LoginForm';
 import Main from '/components/Main';
 
 
 export default function Home() {
-
-  const [locations, setLocations] = useState([])
+  const { user, login } = useAuth();
+  const [locations, setLocations] = useState([]);
 
   function locationCreateHandler(event) {
     event.preventDefault();
@@ -33,7 +34,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header/>
+      {user ? 
       <Main locationCreateHandler={locationCreateHandler} locations={locations}/>
+      :
+      <LoginForm onLogin={login}/>
+     
+      }
       <Footer locations={locations}/>
     </>
   )
