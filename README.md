@@ -7,6 +7,9 @@
 
 deploy from end (this) and back end (cookie-stand-api) to Vercel
 
+## Deployed URL
+[Cookie-stand-admin](https://cookie-stand-admin-nu-two.vercel.app/)
+
 ### Next.js documentation below
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
