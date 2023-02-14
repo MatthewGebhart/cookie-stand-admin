@@ -1,11 +1,11 @@
-# Lab 39
-## Cookie Stand Admin version 3
+# Lab 41
+## Cookie Stand Admin version 4
 ## Matthew Gebhart
 
 
-## connect Next.js to DRF API
+## deploy to Vercel
 
-Adding login and authentication with JWT and connecting to Django REST API backend with postgreSQL dbgst
+deploy from end (this) and back end (cookie-stand-api) to Vercel
 
 ### Next.js documentation below
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
