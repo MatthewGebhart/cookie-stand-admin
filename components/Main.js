@@ -8,8 +8,7 @@ export default function Main(props) {
     return(
         <main className='py-6 bg-emerald-100'>
         <CreateForm locationCreateHandler={props.locationCreateHandler}/>
-        {/* <ReportTable locations={props.locations}/> */}
-        <ReportTable locations={resources || []} deleteStand={deleteResource} />
+        <ReportTable stands={resources || []} deleteStand={deleteResource} />
       </main >
     )
 }

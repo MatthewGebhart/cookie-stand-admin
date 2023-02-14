@@ -7,23 +7,13 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 import LoginForm from 'components/LoginForm';
 import Main from '/components/Main';
+import useResource from '../hooks/useResource';
 
 
 export default function Home() {
-  const { user, login } = useAuth();
-  const [locations, setLocations] = useState([]);
+  const { user, login, logout } = useAuth();
+  const { resources } = useResource();
 
-  function locationCreateHandler(event) {
-    event.preventDefault();
-    const location = {
-      name: event.target.locationName.value,
-      minCustomers: event.target.minCustomers.value,
-      maxCustomers: event.target.maxCustomers.value,
-      avgCookies: event.target.avgCookiesPerSale.value,
-      id: locations.length
-    };
-    setLocations([...locations, location])
-  }
   
   return (
     <>
@@ -33,14 +23,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header/>
+      <Header user={user} logout={logout}/>
       {user ? 
-      <Main locationCreateHandler={locationCreateHandler} locations={locations}/>
+      <Main/>
       :
       <LoginForm onLogin={login}/>
      
       }
-      <Footer locations={locations}/>
+      <Footer locations={resources || []}/>
     </>
   )
 }

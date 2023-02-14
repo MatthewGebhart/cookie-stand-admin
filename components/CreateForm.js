@@ -1,7 +1,26 @@
-export default function CreateForm(props){
+import { useAuth } from '@/contexts/auth';
+import useResource from '../hooks/useResource';
+
+export default function CreateForm(){
+
+  const { user } = useAuth();
+  const { createResource } = useResource();
+
+  function locationCreateHandler(event) {
+    event.preventDefault();
+    const info = {
+      location: event.target.locationName.value,
+      minimum_customers_per_hour: parseInt(event.target.minCustomers.value),
+      maximum_customers_per_hour: parseInt(event.target.maxCustomers.value),
+      average_cookies_per_sale: parseFloat(event.target.avgCookiesPerSale.value),
+      owner: user.id
+    };
+    createResource(info);
+  }
+
+
     return(
-        <form className='w-3/4 p-2 mx-auto my-auto rounded-md border border-emerald-500 bg-emerald-200' onSubmit={props.locationCreateHandler}>
-        {/* <h2 className='text-center text-2xl font-semibold p-2'>Create Cookie Stand</h2> */}
+        <form className='w-3/4 p-2 mx-auto my-auto rounded-md border border-emerald-500 bg-emerald-200' onSubmit={locationCreateHandler}>
         <div className="flex justify-evenly items-end my-1">
           <div className=" block w-3/4 p-2 mx-4">
           <label className='block mb-2 text-center font-semibold'>Add Location</label>
